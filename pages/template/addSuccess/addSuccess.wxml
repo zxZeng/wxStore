@@ -1,0 +1,9 @@
+ <template name='addSuccess'> 
+  <view class='addSuccess'>
+    <view>
+      <view class='itemOk'><text class='iconfont icon-tipssuccess iconOk'></text></view>
+      <view class='itemOk'><text >添加成功</text></view>
+    </view>
+  </view>
+
+ </template> 

@@ -1,0 +1,172 @@
+/* 个人信息 */
+.container-box{
+   background-color:#ececec; 
+   position: relative;
+   overflow: hidden;
+}
+/*  个人信息头像  */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding:60rpx 0;
+  position: relative;
+}
+.userinfo > .bgimg{
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+.userinfo-avatar {
+  position: relative;
+  z-index: 1;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+/*  个人信息名称  */
+.userinfo-nickname {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: 32rpx;
+  margin-top: 15rpx;
+}
+
+/*  订单状态  */
+.orderStatusFrame{
+  margin-top: 2rpx;
+  padding: 0 20rpx 6rpx;
+  background-color: white;
+}
+/*  订单状态上  */
+.orderUp{
+  width: 100%;
+  padding: 40rpx 0;
+  /* background-color: white; */
+  border-bottom: 2rpx solid #ececec;
+}
+.orderUp::after{
+  display: block;
+  content: "";
+  clear: both;
+}
+.orderUp > text{
+  height: 36rpx;
+  line-height: 36rpx;
+}
+.orderUp .examineOrder{
+  font-size:32rpx;
+  color: #818181; 
+  float: left;
+}
+.orderUp .allOrder{
+  float: right;
+  font-size: 20rpx;
+  color: #818181;
+  position: relative;
+  padding-right: 40rpx;
+}
+.orderUp .allOrder:before{
+  position: absolute;
+  color: #aeaeae;
+  right:0;
+  font-size: 36rpx;
+  top:0;
+}
+
+/*  订单状态下  */
+.orderDown{
+  padding: 20rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.orderDown .orderOpt{
+  font-size: 20rpx;
+  color: #818181;
+  text-align: center;
+}
+.orderDown .orderOpt::before{
+  display: block;
+  font-size: 56rpx;
+  margin-bottom: 6rpx;
+  color: #868686;
+}
+.orderDown .orderOpt:nth-of-type(1):before{
+  font-size: 72rpx;
+  margin-bottom: -1rpx;
+  margin-top:-10rpx;
+}
+/*  菜单  */
+.menuFrame {
+  margin-top: 20rpx;
+  padding: 0 20rpx 160rpx;
+  background-color: white;
+}
+.menuFrame .menuOpt{
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
+  background-color: white;
+  font-size: 32rpx;
+  color: #818181;
+}
+.menuFrame .menuOpt::before{
+  position: absolute;
+  right: 0;
+  top:0;
+  height: 100%;
+  font-size: 40rpx;
+  color: #aeaeae;
+}
+.menuOpt + .menuOpt{
+  border-top: 2rpx solid gainsboro;
+}
+
+/*  客服  */
+.guestService{
+  position: absolute;
+  right: 10rpx;
+  bottom: 100rpx;
+  width: 145rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  border-radius: 8rpx;
+  padding: 10rpx 0 0 20rpx;
+  box-sizing: border-box;
+  background-color: gainsboro;
+  font-size: 25rpx;
+  color: #818181;
+}
+.guestService::before{
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}
+.guestServiceText{
+  display:inline-block;
+  position:relative;
+  right:-20rpx;
+  top:-10rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

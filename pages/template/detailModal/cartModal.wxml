@@ -1,0 +1,41 @@
+<template name='cartModal'>
+  <view class='cartModal'>
+    <view class='cartModal-content'>
+      <view class='cartModal-first'>
+        <view class='cartModal-img'>
+          <image src='{{imageUrl}}' mode='aspectFill'></image>
+        </view>
+        <view class='cartModal-first-right'>
+          <view class='cartModal-title'>{{title}}</view>
+          <view class='cartModal-price'>￥{{c_num * price}}</view>
+        </view>
+      </view>
+      <view class='cartModal-second'>
+        <text>数量</text>
+        <view class='cartModal-count'>
+          <text bindtap='detailMinus'>-</text>
+          <text>{{c_num}}</text>
+          <text bindtap='detailPlus'>+</text>
+        </view>
+      </view>
+      <view class='cartModal-button'>
+        <button wx:if="{{hasUserInfo}}"
+          bindtap='joinCart' 
+          data-productid='{{productId}}' 
+          class='{{isCart?"detailCart":"detailOrder"}}'>
+          {{isCart?'加入购物车':'立即购买'}}
+        </button>
+        <button wx:else
+          open-type="getUserInfo" 
+          bindgetuserinfo='setUserInfo' 
+          data-productid='{{productId}}' 
+          class='{{isCart?"detailCart":"detailOrder"}}'>
+          {{isCart?'加入购物车':'立即购买'}}
+        </button>
+      </view>
+    </view>
+    <view class='cartModal-close' bindtap='cartModalClose'>X</view>
+  </view>
+
+
+</template>

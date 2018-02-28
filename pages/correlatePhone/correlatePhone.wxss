@@ -1,0 +1,79 @@
+.container-box{
+  background-color: gainsboro;
+  padding-bottom: 20rpx;
+}
+
+/*  温馨提示  */
+.tip{
+  padding-left: 10rpx;
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  background-color: #fff0f5;
+  color: #a9a9a9;
+}
+
+/*  绑定手机主界面  */
+.correlatePhone{
+
+}
+.correlatePhone form{
+
+}
+.correlatePhone form view{
+  padding: 0 15rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  position: relative;
+  border-bottom: 1px solid #dcdcdc;
+  background-color: white;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.correlatePhone form view label{
+  font-size: 24rpx;
+  flex-basis: 140rpx;
+}
+.correlatePhone form view input{
+  font-size: 28rpx;
+  display: inline-block;
+  width: 350rpx;
+  position: relative;
+  top:14rpx;
+}
+.correlatePhone form view input .input-placeholder{
+  color:#dcdcdc;
+}
+
+/*  获取验证码  */
+.phoneFrame .reqVerificationCode{
+  position: absolute;
+  font-size: 24rpx;
+  padding: 14rpx 20rpx;
+  line-height: 36rpx;
+  right:10%;
+  top: 12rpx;
+  color: #818181;
+}
+
+/*  提交绑定  */
+.submitCorrelate{
+  width: 100%;
+}
+.submitCorrelate button{
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height:70rpx;
+  border-radius: 8rpx;
+  background-color: orangered;
+  color: white;
+  width: 80%;
+  margin: 20rpx auto 0;
+}
+
+
+
+
+
+
+

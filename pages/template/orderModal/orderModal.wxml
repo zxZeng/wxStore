@@ -1,0 +1,11 @@
+<!--pages/template/ordreModal/orderModal.wxml-->
+<template name='orderList'>
+  <view class='cartList'>
+      <view class='cartList-img'><image src='{{indexImage}}'></image></view>  
+    <view>
+        <view class='cartList-title'>{{productName}}</view>  
+       <view class='cartList-price'><text>价格：</text>￥{{productPrice}}</view> 
+      <view class='cartList-count'>数量：<text>{{productNum}}</text></view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,62 @@
+/* pages/shoppingCart/shoppingCart.wxss */
+
+ @import '../template/cartList/cartList';  
+.cart{
+  margin-bottom: 100rpx;
+}
+.cart-title{
+  height:80rpx;
+  border-bottom: 1px solid gainsboro;
+  text-align: center;
+  line-height: 80rpx;
+  position: relative;
+}
+.cart-edit{
+  position: absolute;
+  right: 20rpx;
+  top:2rpx;
+}
+.cart-bottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height:100rpx;
+  line-height: 100rpx;
+  background-color:white; 
+  border-top:1px solid gainsboro;
+  padding-left: 20rpx;
+}
+.cart-total{
+  float:right;
+  padding-right: 10rpx;
+}
+.cart-pay{
+  float:right;
+  height:100rpx;
+  width:200rpx;
+  line-height: 100rpx;
+  background-color: #FF4508;
+  text-align: center;
+  color: #fff;
+}
+.allpick-checkbox{
+    position: relative;
+    z-index: 1000;
+   opacity: 0;
+}
+
+.noGoods{
+  line-height: 1110rpx;
+  text-align: center;
+}
+.fontBlue{
+  color: #ff5252;
+  display: inline-block;
+}
+.fontBlue-loginBtn{
+  background: none;
+  border:none;
+  overflow:visible;
+  position: static;
+}

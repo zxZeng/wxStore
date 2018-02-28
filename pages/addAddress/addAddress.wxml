@@ -1,0 +1,36 @@
+<view class='container-box'>
+  <form>
+    <view class='receivePeople'>
+      <label>收货人:</label>
+      <input type='text' placeholder='请输入收货人姓名' value="{{addressInfo.name}}"  bindinput='confirmData' data-condition='name' placeholder-class='input-placeholder'></input>
+    </view>
+    <view class='receivePhone'>
+      <label>手机号:</label>
+      <input type='text' placeholder='请输入收货人联系电话' value="{{addressInfo.phone}}"  bindinput='confirmData' data-condition='phone'   
+          placeholder-class='input-placeholder'></input>
+    </view>
+     <!--  省市区选择器  -->
+    <view class="section">
+      <picker mode="region" bindchange="bindRegionChange" value="{{area}}" custom-item="{{customItem}}">
+        <view class='receiveAddress'>
+          <label>所在地区:</label>
+          <view class='addressName'>
+            <text>{{area[0]}}</text>
+            <text>{{area[1]}}</text>
+            <text>{{area[2]}}</text>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <!--  详细地址  -->
+    <view class='receiveDetailAddress'>
+      <label>详细地址:</label>
+      <input type='text' placeholder='请输入您的详细地址' bindinput='confirmData' data-condition='address' placeholder-class="input-placeholder" value="{{addressInfo.detailAddress}}" ></input>
+    </view>
+    <view class='oprateBtn'>
+      <text catchtap='saveAddress'>保存</text>
+      <text catchtap='cancelAddress'>取消</text>
+    </view>
+  </form>
+  <toast hidden="{{toast.display}}" bindchange="toastChange">{{toast.msg}}</toast>
+</view> 

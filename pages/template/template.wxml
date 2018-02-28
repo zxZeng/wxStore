@@ -1,0 +1,23 @@
+<!--pages/template/template.wxml-->
+<!--商城列表模板  -->
+<template name="goodsInfo">
+
+  <view class='goodsInfo'>
+        <view class='infoItem bgWhite'>
+          <view class='infobox'>
+          <navigator url='/pages/goodsDetails/goodsDetails?id={{productId}}'>
+           <view class='imgBgBox'><image class='imgBg' src='{{indexImage}}'></image></view>
+           </navigator> 
+            <view class='infoText'>
+              <text>{{productName}}</text>
+              <view class='infoPrice'>
+                <view class='price'><text>￥{{productPrice}}元</text></view>
+                <view class='cart'><text class='iconfont icon-gouwuche' data-price='{{productPrice}}' data-productId='{{productId}}' bindtap='addCart'></text></view>
+              </view>
+            </view>
+          </view>
+        </view>
+    </view>
+ 
+</template>
+

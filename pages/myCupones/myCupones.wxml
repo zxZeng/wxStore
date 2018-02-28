@@ -1,0 +1,42 @@
+<view class='container-box'>
+  <!--  优惠券使用状态  -->
+   <view class='cuponesFrame'>
+    <!-- <text wx:for="{{cuponesStatus}}" wx:key="index" class="{{item.text==navActive?'active':''}}" bindtap='changeNav' data-nav="{{item.text}}">{{item.text}}</text> -->
+    <text>优惠券栏</text>
+  </view> 
+  <!--  获取更多优惠券  -->
+  <!-- <view class='moreCupones' bindtap='showFlag'>
+    <text class='iconfont icon-jia'>添加</text>
+  </view> -->
+  <!--  优惠券  -->
+  <view animation="{{animationData}}" class='cuponesBox' wx:if="{{cuponesInfo.length>0}}">
+    <view  wx:for="{{cuponesInfo}}" wx:key="index" class='cuponesOpt' data-cuponesId='{{item.cuponesId}}'>
+      <text class='cuponesName'>{{item.cuponesName}}</text>
+      <text class='cuponesDate'>{{item.cuponesDate}}</text>
+      <text class='cuponesTip' wx:if="{{item.cuponesTip!=''}}">{{item.cuponesTip}}</text>
+       <view class='discount' wx:if="{{item.cuponesName=='打折券'}}">
+        <text class='number'>{{item.discount}}</text>
+        <text class='unit'>.0 折</text>
+      </view> 
+      <view class='discount' wx:else>
+        <text class='unit'>¥ </text> 
+        <text class='number'> {{item.discount}}</text>
+      </view>
+      <!--  优惠券状态  -->
+      <!-- <text class='cuponesStatus'>{{item.cuponesStatus}}</text> -->
+    </view>
+  </view>
+  <view wx:else class='noneOrderTip'>
+      <text>亲，您的优惠券等您添加哟！！！</text>
+  </view>
+  <!--  优惠券弹框  -->
+  <view class='moreCuponeseModel' wx:if="{{modalFlag}}">
+    <form>
+      <input type='text' placeholder='请输入您的券码' placeholder-class='input-placeholder' bindinput='inputCuponesId'></input>
+      <button type='button' catchtap='addCupones'>添加</button>
+      <button type='reset' bindtap='hiddenFlag'>取消</button>
+    </form>
+  </view>
+  <!--  领取提示  -->
+  <toast hidden="{{toast.display}}" bindchange="toastChange">{{toast.msg}}</toast>
+</view>

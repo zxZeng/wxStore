@@ -1,0 +1,140 @@
+/* pages/order/order.wxss */
+@import '../template/orderModal/orderModal';
+
+.order {
+  background-color: #f3f3f3;
+  margin-bottom: 100rpx;
+  letter-spacing: 0.1em;
+}
+
+/*地址显示  */
+
+.address {
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  border-top:1px solid #f3f3f3; 
+  border-bottom:1px solid #f3f3f3; 
+}
+
+.addressBox {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 92%;
+  padding: 30rpx 0;
+  margin: 0 auto;
+  
+}
+.addNoBox{
+  width: 92%;
+  padding: 30rpx 0;
+  margin: 0 auto;
+  font-size: 36rpx;
+}
+.addNoBox > view::before{
+  float: right;
+}
+
+.addressBox>view:first-child {
+  width: 90%;
+}
+
+.addressBox>view:last-child {
+  width: 8%;
+  text-align: center;
+  
+}
+.addressBox .iconRight{
+  line-height: 104rpx; 
+  font-size: 40rpx;
+}
+.addInfo{
+  font-size: 28rpx;
+  color: #b4b4b4;
+  white-space:nowrap; 
+  width:350rpx; 
+  overflow:hidden; 
+  text-overflow:ellipsis;
+}
+/*分割线  */
+
+
+/*商品显示  */
+
+.bgWhite {
+  background-color: #fff;
+}
+
+.order-message {
+  /* width:100%; */
+  height: 140rpx;
+  background-color: #fff;
+  margin: 10rpx 0;
+  padding: 20rpx;
+}
+
+textarea {
+  width: 90%;
+  margin: 0 auto;
+  height: 80%;
+  background-color: #f6f8f9;
+  padding: 20rpx;
+  border-radius: 8rpx;
+}
+
+.order-detail {
+  margin-top: 20rpx;
+  /* background-color: #fff; */
+}
+
+.order-detail>view {
+  /* height:80rpx;
+  line-height: 80rpx; */
+  font-size: 32rpx;
+  text-align: right;
+  padding: 32rpx 5%;
+  border-bottom: 1px solid #f6f8f9;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.floatL {
+  float: left;
+}
+
+.floatR {
+  font-size: 28rpx;
+}
+
+.price {
+  color: #ff5252;
+  letter-spacing: 0;
+}
+
+.totalPrice {
+  text-align: right;
+}
+
+.order-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: white;
+  padding-left: 20rpx;
+}
+
+.order-pay {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  height: 100rpx;
+  width: 100%;
+  line-height: 100rpx;
+  background-color: #1aad16;
+  text-align: center;
+  color: #fff;
+}

@@ -1,0 +1,65 @@
+<view class='container-box'>
+  <!--  导航标签  -->
+  <view class='navLabel'>
+    <text wx:for="{{navInfo}}" wx:key="index" class="{{item.english==navActive?'navText active':'navText'}}" bindtap='changeNav' data-nav="{{item.english}}">{{item.text}}</text>
+  </view>
+  <!--  订单详细信息  -->
+  <swiper class="itemContainer" style='height:{{myHeight==0?"74vh":myHeight+"rpx"}}' bindchange="swiperChange" current="{{currentTab}}">
+    <block wx:for="{{navInfo}}" wx:for-item="cItem" wx:key="index">
+      <!--  有订单  -->
+      <swiper-item>
+        <scroll-view scroll-y="true" bindscrolltolower="downloadMoreItem" bindscrolltoupper="updateItem">
+          <view class='orderInfoFrame' wx:if="{{OrderInfo[cItem.english].length!=0}}">
+            <view class='orderInfoOpt' wx:for="{{OrderInfo[cItem.english]}}" wx:for-index="idx" wx:key="idx">
+              <!--  订单号&&订单状态  -->
+              <view class='orderInfo'>
+                <text>订单编号：{{item.orderNumber+myHeight}}</text>
+                <text>{{item.orderStatus}}</text>
+              </view>
+              <!--  商品信息  -->
+              <view class='productInfoFrame'>
+                <!--  商品图片  -->
+                <view class='productImgBox'>
+                  <image src='{{item.imgsrc}}'></image>
+                </view>
+                <!--  商品名称  -->
+                <view class='productName'>
+                  <text>{{item.productName}}</text>
+                </view>
+                <!--  商品价格&&数量  -->
+                <view class='productPrice'>
+                  <text>¥ {{item.productPrice}}</text>
+                  <text>X {{item.productCount}}</text>
+                </view>
+              </view>
+              <!--  商品合计  -->
+              <view class='totalFrame'>
+                <view class='totalBox'>
+                  <text>共计 {{item.productCount}} 件商品</text>
+                  <text>合计 : ¥ {{item.productCount * item.productPrice}}.00</text>
+                </view>
+              </view>
+              <!--  订单操作按钮  -->
+              <view class='btnFrame'>
+                <view class="btnBox">
+                  <text class='btn' wx:for="{{item.btn}}" wx:for-item="btn" wx:key="index">{{btn.btnName}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!--  没有订单的提示  -->
+          <view wx:else class='noneOrderTip'>
+            <navigator class='goShop' wx:if="{{navActive=='all'}}" open-type='redirect' url='/pages/goodsList/goodsList'>
+              <text>去商城</text>
+            </navigator>
+            <text>亲，您还没有相关订单！！！</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--  技术支持服务中心  -->
+  <view class="technicalTip">
+    技术支持@成都众商加科技有限公司
+  </view>
+</view>

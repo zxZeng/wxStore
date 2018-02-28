@@ -1,0 +1,119 @@
+<view class='home'>
+  <!--首页banner轮播图  -->
+  <swiper class='slide-box' indicator-dots="{{indicatorDots}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--搜索框  -->
+  <view class='searchBox'>
+    <view class="{{fixed?'headerFix':'header'}}">
+      <view class="{{fixed?'searchFix':'search'}}">
+        <view class='searchIcon'>
+          <icon type="search" size="17"></icon>
+        </view>
+        <input class='searchInput' value='{{inputValue}}' bindconfirm='navSearch' confirm-type='search' type='text' placeholder-class='searchHolder' placeholder='请输入关键字进行搜索' />
+      </view>
+    </view>
+  </view>
+  <!--商品分类 -->
+  <view class='classfy'>
+    <!--图标  -->
+    <view class='iconItem' bindtap='personal'>
+        <view class='iconfont icon-huiyuan-01 indexIcon'></view>
+      <view>
+        <text>会员</text> </view>
+    </view>
+    <view class='iconItem' bindtap='classify'>
+        <view class='iconfont icon-fenlei2 indexIcon '></view>
+      <view>
+        <text>分类</text>
+      </view>
+    </view>
+
+
+    <view class='iconItem'>
+      <navigator url='/pages/myCupones/myCupones'>
+        <view class='iconfont icon-unie648 indexIcon'></view>
+      </navigator>
+      <view>
+        <text>优惠券</text>
+      </view>
+    </view>
+
+
+    <view class='iconItem'>
+      <navigator url='/pages/myOrder/myOrder'>
+        <view class='iconfont icon-dingdan indexIcon'></view>
+      </navigator>
+      <view>
+        <text>订单</text>
+      </view>
+    </view>
+
+
+    <view class='iconItem'>
+      <navigator url='/pages/goodsList/goodsList'>
+        <view class='iconfont icon-fenlei indexIcon'></view>
+      </navigator>
+      <view>
+        <text>全部商品</text>
+      </view>
+    </view>
+
+  </view>
+  <!--精选商品  -->
+  <view class='choiceness'>
+    <view class='bgWhite'>
+      <view class='more'>
+        <view class='moreText'>
+          <text>精选商品</text>
+        </view>
+        <view bindtap='moreGoods'>
+          <text>更多</text>
+          <text class='iconfont icon-right'></text>
+        </view>
+      </view>
+      <!--商品图片列表  -->
+      <view class='goodsImg'>
+        <block wx:for='{{newObj}}' wx:key="unique">
+          <view class='imgItem' bindtap='featureDetail' data-productId='{{item.productId}}'>
+            <image class='imgBorder' src='{{item.indexImage}}'></image>
+          </view>
+          
+        </block>
+      </view>
+    </view>
+    <!--商品信息列表  -->
+    <view class='goodsInfo'>
+      <block wx:for='{{jxObj}}' wx:key="unique">
+        <view class='infoItem bgWhite'>
+          <view class='infobox'>
+            <navigator url='/pages/goodsDetails/goodsDetails?id={{item.productId}}'><view class='imgBgBox'>
+              <image class='imgBg' src='{{item.indexImage}}'></image>
+            </view></navigator>
+            <view class='infoText'>
+              <text>{{item.productName}}</text>
+              <view class='infoPrice'>
+                <view>
+                  <text>￥{{item.productPrice}}元</text>
+                </view>
+                <view class='cart'>
+                  <text class='iconfont icon-gouwuche ' bindtap='addCart' data-price='{{item.productPrice}}' data-productId='{{item.productId}}'></text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <toast hidden="{{toast.display}}" bindchange="toastChange">
+    {{toast.msg}}
+  </toast>
+  <view class='box'></view>
+  <!--  加载刷新  -->
+  <loading hidden="{{!loadFlag}}">正在加载...</loading>
+</view>

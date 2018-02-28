@@ -1,0 +1,89 @@
+<!--pages/goodsDetail/goodsDetail.wxml-->
+<import src='../template/detailModal/cartModal' />
+<view class='detail'>
+  <view>
+    <swiper class='detailImg' indicator-dots='true' autoplay='true' circular='true'>
+      <block wx:for="{{imageUrls}}" wx:key='unique'>
+        <swiper-item class='detailImg-container'>
+          <image src='{{item}}' mode='aspectFill'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='first-content'>
+    <view class='detail-title'>
+      <text>{{goodsDetail.productName}}</text>
+    </view>
+    <view>
+      <text class='detail-price'>￥{{goodsDetail.productPrice}}.00</text>
+    </view>
+    <view class='detail-count'>
+      <text>运费:包邮</text>
+    </view>
+  </view>
+  <!--评价  -->
+  <view class='detail-detail'>
+    <view class='detail-detail-title'>——— 评价 ———</view>
+    <view class="detail-detail-content">
+    <!--评价标题  -->
+      <view class='detail-Title'>
+        <view>
+          <text>评价</text>
+          <text>(0)</text>
+        </view>
+      </view>
+      <!--评价内容  -->
+      <!-- <view class='reviewContent'>
+        <view class='reviewTitle'><text class='iconfont icon-huiyuandenglu'></text> 用户1</view>
+        <view class='reContent'>还不错，挺好的，实物与图片相符，物流给力</view>
+        <view><text class='reTime'>2018-01-09</text></view>
+      </view>
+      <view class='reviewContent'>
+        <view class='reviewTitle'><text class='iconfont icon-huiyuandenglu'></text> 用户1</view>
+        <view class='reContent'>还不错，挺好的，实物与图片相符，物流给力</view>
+        <view><text class='reTime'>2018-01-09</text></view>
+      </view> -->
+    </view>
+  </view>
+  <!--商品详情  -->
+  <view class='detail-detail'>
+    <view class='detail-detail-title'>——— 详情  ———</view>
+    <view class="detail-detail-content">
+    <!--评价标题  -->
+      <view class='detail-Title'>
+        <view>
+          <text>商品详情</text>
+        </view>
+      </view>
+      <!--详情内容  -->
+      <view class='reviewContent'>
+        <view wx:for='{{detailUrl}}' wx:key="unique"><image class='imgDetail' mode='aspectFill' src='{{item}}'></image></view>
+      </view>
+    </view>
+  </view>
+  <!-- 购物车图标 -->
+    <view class='iconCart' bindtap='shoppingCart'>
+      <text class='iconfont icon-gouwuche'></text>
+    </view>
+  
+  <!--空的div  -->
+  <view style='height:90rpx;'></view>
+  <view class='detail-buy'>
+    
+    <view bindtap='buyModal'>立即购买</view>
+    <view bindtap='cartModal'>加入购物车</view>
+    <view bindtap='homeModal' >
+        <view class='homeModal'>
+        <view><text class='iconfont icon-shouye1 '></text></view>
+        <view><text>首页</text></view>
+      </view>
+    </view>
+  </view>
+  <view hidden='{{!showModal}}'>
+    <template 
+      is='cartModal' 
+      data='{{imageUrl:goodsDetail.indexImage,title:goodsDetail.productName,price:goodsDetail.productPrice,c_num:num,isCart:isCart,hasUserInfo:hasUserInfo,productId:productId}}'>
+    </template>
+  </view>
+  <toast hidden="{{toast.display}}" bindchange="toastChange">{{toast.msg}}</toast>
+</view>

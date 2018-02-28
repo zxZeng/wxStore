@@ -1,0 +1,55 @@
+.category{
+  font-size: 24rpx;
+  letter-spacing: 0.1em;
+  color: #868686;
+  background-color: #f3f3f3;
+}
+.bgWhite{
+  background-color: #fff;
+}
+/*=========搜索框========  */
+.header{
+   width:100%;
+   background-color: #fff;
+   padding: 10rpx 0;
+}
+.search{
+  margin: 10rpx 20rpx;
+  overflow: hidden;
+}
+.btnSearch{
+  width: 20%; 
+  float: right;
+  text-align: center;
+  font-size: 28rpx;
+  /* background-color: #f0f0f0; */
+}
+.searchInput{
+  width: 70%; 
+  padding: 10rpx 30rpx;
+  background-color: #f0f0f0;
+  border-radius: 6rpx;
+  float: left;
+  font-size: 24rpx;
+}
+.searchHolder{
+  font-size: 24rpx;
+}
+
+/*分类列表  */
+.classList .classList-box>view:last-of-type{
+  border-bottom: 6rpx solid #f0f0f0;
+}
+.goodsList{
+    margin: 6rpx 0;  
+  /* border: 4rpx solid f3f3f3; */
+}
+.goodsAll{
+  margin: 30rpx 0;
+}
+.classText{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+   padding: 30rpx 40rpx; 
+}

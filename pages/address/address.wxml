@@ -1,0 +1,46 @@
+<view class='container-box'>
+  <!--  地址显示  -->
+  <view>
+    <view class='receiveFrame iconfont icon-dingwei5' wx:for="{{receiveData}}" wx:key="index" 
+    catchtap='comfirmAddress' data-addressId="{{item.addressId}}">
+      <!--  收货人名称&&收货人电话  -->
+      <view class='receiveInfo'>
+        <text>{{item.peopleName}}</text>
+        <text>{{item.peoplePhone}}</text>
+      </view>
+      <!--  收货人详细地址  -->
+      <view class='receiveAddress'>
+        <text>{{item.province}}</text>
+        <text>{{item.city}}</text>
+        <text>{{item.area}}</text>
+        <text>{{item.detailAddress}}</text>
+      </view>
+      <!--  地址操作按钮&&选择  -->
+      <view class='addressOprate'>
+        <view catchtap='changeOption' data-userid="{{item.userId}}" data-index="{{item.addressId}}" class='changeOpt'>
+          <text class='{{item.addressId==defaultId?"active iconfont icon-iconfontxuanzhong4":""}}'></text>
+          <text>设为默认</text>
+        </view>
+        <view class='changeBtn'>
+          <button catchtap='redactAddress' data-redactIndex="{{item.addressId}}">编辑</button>
+          <button catchtap='selectedOpt' data-index='{{item.addressId}}' data-userid="{{item.userId}}">删除</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--  添加地址  -->
+  <view class='addAddress'>
+    <text class='iconfont icon-jia' catchtap='addAddress'>添加新地址</text>
+  </view>
+  <!--  删除地址询问框  -->
+  <view class='delModel' wx:if="{{delFlag}}" catchtap='hiddenModel'>
+    <view class='tipFrame' catchtap='none'>
+      <text>提示</text>
+      <text>确定删除改地址吗？</text>
+      <view class='oprateBtnBox'>
+        <text catchtap='hiddenModel'>取消</text>
+        <text catchtap='delOption'>确定</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+<view class='category'> 
+  <!--搜索框  -->
+  <view class='header bgWhite'>
+    <view class='search'>
+       <view class='searchIcon'>
+        <button class='btnSearch' bindtap='search'>搜索</button>
+      </view> 
+      <input class='searchInput' bindinput='searchInput' confirm-type='search' type='text' placeholder-class='searchHolder' placeholder='搜索商品' /> 
+    </view>
+  </view>
+  <!--分类列表  -->
+  <view class='classList'>
+    <view class='classList-box'>
+    <!--所有产品  -->
+      <view class='bgWhite goodsList goodsAll'>
+        <navigator url='/pages/goodsList/goodsList'>
+          <view class='classText'>
+            <view><text>所有产品</text></view>
+            <view><text class='iconfont icon-right'></text></view>
+          </view>
+        </navigator>
+      </view>
+       <!--木门 -->
+      <view class='bgWhite goodsList' wx:for='{{classObj}}' wx:key='unique'>
+        <navigator url='/pages/goodsList/goodsList?type={{item}}'>
+          <view class='classText'>
+            <view><text>{{item}}</text></view>
+            <view><text class='iconfont icon-right'></text></view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

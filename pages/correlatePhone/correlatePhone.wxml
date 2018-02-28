@@ -1,0 +1,31 @@
+<view class='container-box'>
+  <!--  温馨提示  -->
+  <view class='tip'>
+    <text>为了保护您的账号安全，请绑定您的手机号</text>
+  </view>
+  <!--  绑定手机主界面  -->
+  <view class='correlatePhone'>
+    <form>
+      <!--  真实姓名  -->
+      <view class='nameFrame'>
+        <label for='name'>真实姓名</label>
+        <input id='name' placeholder-class="input-placeholder"  type='text' placeholder='请输入您的真实姓名'></input>
+      </view>
+      <!--  手机号  -->
+      <view class='phoneFrame'>
+        <label for='#phone'>手机号</label>
+        <input id='phone' type='text' placeholder-class="input-placeholder" placeholder='请输入您的手机号码'></input>
+        <button catchtap='reqVerificationCode' class='reqVerificationCode'>{{verificationCodeBtn}}</button>
+      </view>
+      <!--  验证码  -->
+      <view class='verificationCodeFrame'>
+        <label for='verificationCode'>验证码</label>
+        <input id='verificationCode' placeholder-class="input-placeholder"  type='text' placeholder='请输入验证码'></input>
+      </view>
+    </form>
+  </view>
+  <!--  提交绑定  -->
+  <view class='submitCorrelate'>
+    <button>提交绑定</button>
+  </view>
+</view>

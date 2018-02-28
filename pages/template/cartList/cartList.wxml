@@ -1,0 +1,18 @@
+<template name='cartList'>
+  
+  <view class='cartList' id='{{id}}'>
+      <view class="checkbox-group" bindchange="singlePick" >
+        <checkbox  hidden='{{!isEdit}}' data-id='{{id}}' class='cart-checkbox' value='{{id}}' />
+        <label class="{{selected?'isChecked':''}}"></label>
+    </view>
+
+      <view class='cartList-del' bindtap='cartListDel' data-orderid='{{id}}'  hidden='{{isEdit}}'>-</view>
+     <view class='cartList-img'><image src='{{imageUrls[0]}}'></image></view> 
+
+    <view>
+       <view class='cartList-title'>{{productName}}</view> 
+       <view class='cartList-price'><text>价格：</text>￥{{productPrice}}</view> 
+      <view class='cartList-count'><text bindtap='cartMinus' data-id='{{productId}}' data-orderid='{{id}}'>-</text><text>{{productSum}}</text><text  bindtap='cartPlus' data-id='{{productId}}'>+</text></view>
+    </view>
+  </view> 
+</template>

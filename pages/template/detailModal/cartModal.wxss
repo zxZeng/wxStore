@@ -1,0 +1,119 @@
+.cartModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(000, 000, 000, 0.5);
+}
+
+.cartModal-count {
+  position: absolute;
+  bottom: 0rpx;
+  right: 30rpx;
+}
+
+.cartModal-count>text {
+  display: inline-block;
+  font-size: 36rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 20rpx;
+  background-color: #f3f3f3;
+  text-align: center;
+  margin: 0 10rpx;
+  border-radius: 2px;
+  color: #818181;
+}
+
+.cartModal-count>text:nth-of-type(2) {
+  background-color: #fe7000;
+  color: white;
+  font-size: 28rpx;
+  margin: 0 10rpx;
+  position: relative;
+  top:-2rpx;
+}
+
+.cartModal-content {
+  background-color: #fff;
+  width: 100%;
+  /* height:330rpx; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.cartModal-first {
+  display: flex;
+  padding: 40rpx 0 20rpx;
+  border-bottom: 1px solid gainsboro;
+}
+
+.cartModal-first-right {
+  padding: 10rpx 10rpx 10rpx 30rpx;
+}
+
+.cartModal-title {
+  width: 300rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.cartModal-price {
+  color: #ff4508;
+}
+
+.cartModal-img {
+  width: 150rpx;
+  height: 150rpx;
+  margin: -20rpx 0 0 40rpx;
+}
+
+.cartModal-img image {
+  border-radius: 8rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.cartModal-second {
+  position: relative;
+  height: 90rpx;
+  border-bottom: 1px solid gainsboro;
+  line-height: 90rpx;
+  padding-left: 40rpx;
+}
+
+.cartModal-second > text:nth-of-type(1) {
+  font-size: 32rpx;
+  color: #818181;
+}
+
+.detailCart {
+  border-radius: 0;
+  background-color: #fe7000;
+  color: #fff;
+}
+
+.detailOrder {
+  border-radius: 0;
+  background-color: #fe7000;
+  color: #fff;
+}
+
+.cartModal-close {
+  position: absolute;
+  bottom: 312rpx;
+  right: 25rpx;
+  width: 40rpx;
+  height: 40rpx;
+  border: 1px solid gainsboro;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: gray;
+  border-radius: 100%;
+}

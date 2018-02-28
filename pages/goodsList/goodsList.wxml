@@ -1,0 +1,59 @@
+<!--pages/goodsList/goodsList.wxml-->
+<view class='goodslist'>
+  <!--搜索框  -->
+  <view class='header bgWhite'>
+    <view class='search'>
+      <view class='searchReturn' bindtap='returnLast'>
+        <text class='iconfont icon-left'></text>
+      </view>
+      <input 
+        confirm-type='search' 
+        class='searchInput' 
+        bindinput='searchInput' 
+        type='text'
+        value="{{searchValue}}"
+        placeholder-class='searchHolder' 
+        placeholder='搜索商品' />
+      <view class='searchIcon'>
+        <button class='btnSearch' bindtap='search'>搜索</button>
+      </view> 
+    </view>
+  </view>
+  <!--顶部分类导航条-->
+  <view class="">
+
+    <view class="navbar">
+      <view class="nav-1">
+        <scroll-view scroll-x="true" class="nav-1-left" scroll-left="{{scrollLeftValue}}">
+          <view wx:for="{{categories}}" data-idx="{{index}}"   class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item.text}}
+          <text bindtap="iconDown" class="{{isDown ? 'iconDown' : 'iconUp'}}">
+          <text class="{{item.classname}}"></text></text>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <swiper class="itemContainer" style="height:{{second_height}}px"  bindchange="swiperChange" current="{{currentTab}}">
+       <block wx:for="{{categories}}" wx:for-item="cItem" wx:key="unique"> 
+        <swiper-item>
+
+          <scroll-view scroll-y="true" bindscrolltolower="downloadMoreItem" bindscrolltoupper="updateItem">
+
+            <view class='itemList'>
+              <view class="child" bindtap="itemTap" wx:for="{{commodities}}"  wx:key="unique" >
+              <!--商品列表显示  -->
+              <import src='../template/template' />
+                <template is="goodsInfo" data="{{...item}}"></template>
+            </view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+       </block> 
+
+    </swiper>
+    </view>
+    <toast hidden="{{toast.display}}" icon='{{toast.icon}}' bindchange="toastChange">
+    {{toast.msg}}
+    </toast>
+    <!--  加载刷新  -->
+  <loading hidden="{{!loadFlag}}">正在加载...</loading>
+  </view>

@@ -1,0 +1,19 @@
+<view class='container-box'>
+
+  <view class='information' wx:for="{{dataInfo}}" wx:key="index">
+    <text bindtap='callPhone' wx:if="{{item.name=='服务热线'}}" class="contact iconfont icon-dianhua"></text>
+    <text>
+      {{item.name+"  "}}:
+    </text>
+    <text>
+      {{item.info}}
+    </text>
+  </view>
+  <view class='tip'>
+    <text>{{tip}}</text>
+  </view>
+   <!--  logo  -->
+  <view class='logo'>
+    <image src='../../images/logo.jpg'></image>
+  </view>
+</view>

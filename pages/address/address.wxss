@@ -1,0 +1,174 @@
+.container-box{
+}
+
+/*  收货人信息块  */
+.receiveFrame{
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 40rpx 80rpx;
+}
+.receiveFrame::before{
+  position: absolute;
+  font-size: 42rpx;
+  width: 80rpx;
+  text-align: center;
+  top:42rpx;
+  left: 0;
+}
+.receiveFrame::after{
+  display: block;
+  content: "";
+  clear: both;
+  width: 100%;
+  height: 10rpx;
+  background-color: gainsboro;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/*  收货人名称&&收货人电话  */
+.receiveInfo,.receiveAddress{
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+.receiveInfo > text:nth-of-type(1){
+  margin-right: 40rpx;
+}
+
+/*  收货人详细地址  */
+.receiveAddress > text{
+  font-size: 24rpx;
+  margin-right: 10rpx;
+}
+
+/*  地址操作按钮&&选择  */
+.addressOprate{
+  height: 48rpx;
+}
+.changeOpt{
+  float:left;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+.changeOpt text{
+  font-size: 24rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+.changeOpt > text:nth-of-type(1){
+  width: 28rpx;
+  height: 28rpx;
+  border: 2rpx solid gainsboro;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 16rpx;
+  position: relative;
+}
+.changeOpt > text:nth-of-type(1)::before{
+  display: block;
+  position: absolute;
+  left: -4rpx;
+  top:-12rpx;
+  font-size: 36rpx;
+  color: red;
+}
+/*  操作按钮  */
+.changeBtn{
+  float: right;
+  height: 100%;
+}
+.changeBtn > button{
+  display: inline-block;
+  font-size: 20rpx;
+  padding: 0 20rpx;
+  line-height: 36rpx;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 4rpx;
+  margin: 0 20rpx;
+  color: #818181;
+}
+/*  添加地址  */
+.addAddress{
+  position: fixed;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  color: white;
+  font-size: 30rpx;
+}
+.addAddress > text{
+  display: inline-block;
+  position: relative;
+  padding-left: 40rpx;
+}
+.addAddress > text::before{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/*  删除地址询问框  */
+.delModel{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:1334rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.tipFrame{
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 15%;
+  width: 70%;
+  height: 220rpx;
+  background-color: white;
+  margin-top: -50%;
+  border-radius: 10rpx;
+}
+.tipFrame > text{
+  display: block;
+  color: #a1a1a1;
+}
+.tipFrame > text:nth-of-type(1){
+  font-size: 32rpx;
+  padding: 20rpx 40rpx;
+  color: #656565;
+}
+.tipFrame > text:nth-of-type(2){
+  font-size: 28rpx;
+  padding: 0 40rpx;
+  text-align: center;
+}
+.oprateBtnBox{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: right;
+  padding-right: 40rpx;
+  font-size: 28rpx;
+  margin-top: 22rpx;
+}
+.oprateBtnBox > text{
+  display: inline-block;
+}
+.oprateBtnBox > text:nth-of-type(1){
+  margin-right: 40rpx;
+}
+.oprateBtnBox > text:nth-of-type(2){
+  color: #32cd32;
+}
+
+
+
+
+
+

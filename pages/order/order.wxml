@@ -1,0 +1,79 @@
+<!--pages/order/order.wxml-->
+
+<import src='../template/orderModal/orderModal' />
+
+<view class="order" >
+  <!--首次进入没有地址  -->
+  <view class='address bgWhite' wx:if="{{!isAddress}}" catchtap='addressInfo'>
+    <view class='addNoBox'>
+      <view class=' iconfont  icon-right1'>
+        <text>请选择地址</text>
+      </view>
+    </view>
+  </view>
+  <!--收货地址  -->
+  <view class='address bgWhite' wx:else>
+    <view class='addressBox' catchtap='addressInfo'>
+      <view class='addressContent'>
+        <view>
+          <text>{{addressInfo.name}}</text>
+        </view>
+        <view>
+        <text class='addInfo'>{{addressInfo.address}}</text>
+        </view>
+      </view>
+      <view>
+        <text class='iconfont icon-right1 iconRight'></text>
+      </view>
+    </view>
+  </view>
+  <view class='order-goods bgWhite'>
+    <block wx:for="{{orderGoods}}" wx:key="unique">
+      <template is='orderList' data="{{...item}}"></template>
+    </block>
+  </view>
+  <view class='order-message'> 
+    <textarea placeholder='买家留言' placeholder-style='font-size:30rpx;'></textarea>
+  </view>
+  <view class='order-address'>
+
+  </view>
+  <view class='order-detail'>
+    <view>
+      <text class='floatL'>配送方式</text>
+      <text class='floatR'>快递(免邮）</text>
+    </view>
+    <!-- <view>
+      <text class='floatL' >优惠券</text>
+      <view class='floatR' catchtap='coupon'>
+        <text >查看我的优惠券</text>
+        <text class='iconfont icon-right1' ></text>
+      </view>
+    </view> -->
+    <view>
+      <view class=''>
+        <text class='floatL'>商品金额</text>
+        <text class='floatR price'>￥{{totalMoney}}</text>
+      </view>
+      <view>
+        <text class='floatL'>运费</text ><text class='floatR price'>+￥{{freightMoney}}.00</text>
+      </view>
+      <view>
+        <text class='floatL'>{{totalMoney>=4000?"优惠券":"折扣券"}}</text>
+        <text class='floatR price'>{{totalMoney>=4000?"-￥"+couponMoney:"八折优惠"}}</text>
+      </view>
+    </view>
+    <view class='totalPrice'>
+      <text>实际金额：</text>
+      <text class='price'>{{actualMoney}}</text>
+    </view>
+
+  </view>
+  <!-- <view style='height:100rpx;'></view> -->
+  <view class='order-bottom'>
+    <view class='order-pay' bindtap='pay'>微信支付</view>
+  </view>
+  <toast hidden="{{toast.display}}" bindchange="toastChange">
+    {{toast.msg}}
+  </toast>
+</view>

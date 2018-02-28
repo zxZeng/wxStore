@@ -1,0 +1,171 @@
+// pages/order/order.js
+const app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    toast: {
+      display: true,
+      msg: ""
+    }, 
+    isAddress:false,
+    num:1,
+    freightMoney:0,
+    couponMoney:0,
+    actualMoney:0,
+    orderGoods: [
+      {
+        imageUrls: ["/images/de1.jpg", "/images/de2.jpg", "/images/de3.jpg", "/images/de4.jpg", "/images/de1.jpg", "/images/de2.jpg"],
+        title: '四川厂家定制欧式实木墙裙', price: 121, subtitle: ' 客厅护墙板 会所白色护墙板批发',
+        tags: ['cccccc', 'dddf', 'fdfff', 'dfffffff'],
+        detailUrl: ['/images/detail1.jpg', '/images/detail2.jpg', '/images/detail3.jpg', '/images/detail4.jpg', '/images/detail5.jpg', '/images/detail6.jpg', '/images/detail7.jpg', '/images/detail8.jpg']
+      },
+      {
+        imageUrls: ["/images/de1.jpg", "/images/de2.jpg", "/images/de3.jpg", "/images/de4.jpg", "/images/de1.jpg", "/images/de2.jpg"],
+        title: '四川厂家定制欧式实木墙裙', price: 121, subtitle: ' 客厅护墙板 会所白色护墙板批发',
+        tags: ['cccccc', 'dddf', 'fdfff', 'dfffffff'],
+        detailUrl: ['/images/detail1.jpg', '/images/detail2.jpg', '/images/detail3.jpg', '/images/detail4.jpg', '/images/detail5.jpg', '/images/detail6.jpg', '/images/detail7.jpg', '/images/detail8.jpg']
+      },
+      {
+        imageUrls: ["/images/de1.jpg", "/images/de2.jpg", "/images/de3.jpg", "/images/de4.jpg", "/images/de1.jpg", "/images/de2.jpg"],
+        title: '四川厂家定制欧式实木墙裙', price: 121, subtitle: ' 客厅护墙板 会所白色护墙板批发',
+        tags: ['cccccc', 'dddf', 'fdfff', 'dfffffff'],
+        detailUrl: ['/images/detail1.jpg', '/images/detail2.jpg', '/images/detail3.jpg', '/images/detail4.jpg', '/images/detail5.jpg', '/images/detail6.jpg', '/images/detail7.jpg', '/images/detail8.jpg']
+      }
+    ]
+  
+  },
+  /**
+   * 地址管理
+   */
+  addressInfo(){
+    wx.navigateTo({
+      url: '/pages/address/address',
+    })
+  },
+  coupon(){
+    wx.navigateTo({
+      url: '/pages/myCupones/myCupones',
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log(options)
+    var _this = this
+    let userId = app.globalData.userInfo.userId;
+    let productId = this.data.orderGoods[0].productId;
+    let actualMoney = options.totalMoney + this.data.freightMoney - this.data.couponMoney
+    this.setData({
+      orderGoods: app.globalData.orderGoods,
+      totalMoney: options.totalMoney,
+      num: options.num,
+      actualMoney: actualMoney
+    })
+  },
+  pay() {
+    var _this = this
+    let userId = app.globalData.userInfo.userId;
+    let productId = this.data.orderGoods[0].productId;
+    let productName = this.data.orderGoods[0].productName;
+    let indexImage = this.data.orderGoods[0].indexImage;
+    let productPrice = this.data.orderGoods[0].productPrice;
+    let actualMoney = this.data.totalMoney + this.data.freightMoney - this.data.couponMoney
+    setTimeout(function () {
+      wx.navigateTo({
+        url: '/pages/myOrder/myOrder',
+      })
+    }, 1000)
+    wx.request({
+      url: 'http://fatezero.e2.luyouxia.net:31952//buyProduct ',
+      method: 'post',
+      data: {
+        userId: userId,
+        productId: productId,
+        productName: productName,
+        indexImage: indexImage,
+        productPrice: productPrice,
+        productNum: this.data.num,
+        totalMoney: actualMoney,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(res) {
+        _this.setData({ toast: { display: false, msg: "支付成功,正在跳转" } })
+        wx.navigateTo({
+          url: '/pages/myOrder/myOrder',
+        })
+        console.log("添加成功", res)
+      }
+    })
+    // wx.requestPayment({
+    //   timeStamp: '',
+    //   nonceStr: '',
+    //   package: '',
+    //   signType: 'MD5',
+    //   paySign: '',
+    //   success:function(){
+
+    //   },
+    //   fail:function(){
+        
+    //   }
+    // })
+  },
+  toastChange: function () {
+    this.setData({ toast: { display: true, msg: "" } })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

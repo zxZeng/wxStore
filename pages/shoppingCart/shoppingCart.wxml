@@ -1,0 +1,54 @@
+<!--pages/shoppingCart/shoppingCart.wxml-->
+
+<import src='../template/cartList/cartList' />
+
+ <view>
+   <!-- <view wx:if="{{!hasUserInfo}}">
+    <view class='noGoods'>
+      <view>您还未登录，点击 
+        <button class='fontBlue fontBlue-loginBtn' open-type="getUserInfo" bindgetuserinfo="getCartList">登录</button>！
+      </view>
+    </view>
+  </view>   -->
+  <view class='cart'>
+    <view class='cart-title'>
+      <text>购物车</text>
+      <view class='cart-edit'>
+        <text bindtap='cartEdit'>{{isEdit?'编辑':'完成'}}</text>
+      </view>
+    </view>
+     <checkbox-group bindchange="checkChange">
+    <block wx:for="{{cartInfo}}" wx:key="unique">
+        <template is='cartList' data="{{...item,isEdit:isEdit}}"></template>
+    </block>
+    </checkbox-group>
+    <view class='cart-bottom' wx:if='{{!isKong}}'>
+      <view>
+        <checkbox-group bindchange="allPick" style='display:inline-block'>
+          <span style='position:relative'>
+            <checkbox class='allpick-checkbox' value='{{id}}' />
+            <label class="{{allPickState?'isChecked':''}}"></label>
+          </span>
+        </checkbox-group>
+        <text class="allPick">全选</text>
+        <view class='cart-pay' bindtap='buyProduct'>
+          结算({{totalCount}})
+        </view>
+        <text class='cart-total'>合计:￥{{totalMoney}}</text>
+      </view>
+    </view>
+
+    <!--没有商品时显示样式  -->
+    <view class='noGoods' hidden="{{loadFlag}}" wx:else>
+      <view bindtap='purchase'> 暂无商品，快去
+        <text class='fontBlue'>购买</text>吧</view>
+    </view>
+  </view>
+
+  <!--没有勾选商品  -->
+  <toast hidden="{{toast.display}}" icon='none' bindchange="toastChange">
+     <view style='margin:80rpx auto 0;width:180rpx;letter-spacing:0.1em;'>还没有选中的商品哦！</view> 
+  </toast>
+  <!--  加载刷新  -->
+  <loading hidden="{{!loadFlag}}">正在加载...</loading>
+</view>

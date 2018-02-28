@@ -1,0 +1,47 @@
+/* pages/template/template.wxss */
+
+.goodsInfo{
+   margin-top:20rpx; 
+  width: 90%;
+   padding: 0 5%; 
+   font-size: 24rpx;
+  letter-spacing: 0.1em;
+  color: #868686;
+}
+
+.imgBg{
+   width: 100%; 
+  height: 260rpx;
+}
+.infoText{
+   padding: 20rpx; 
+}
+.infoText>text{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1
+}
+.infoPrice{
+  display: flex;
+  flex-flow: row nowrap;
+  color: #ff5252;
+  margin: 10rpx 0;
+  justify-content: space-between;
+}
+.infoPrice>view{
+  
+  line-height: 50rpx;
+}
+.infoPrice>.price{
+  width: 80%;
+}
+.infoPrice>.cart{
+  width: 20%;
+  text-align: right;
+}
+.cart>text{
+  font-size: 50rpx;
+  color: #ff5252;
+}
